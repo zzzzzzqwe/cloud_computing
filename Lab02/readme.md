@@ -41,3 +41,41 @@
 ![image](screenshots/Screenshot_8.png)
 
 ![image](screenshots/Screenshot_9.png)
+
+## Задание 2. Настройка Zero-Spend Budget
+
+Перехожу в `Billing and Cost Management` -> `Budgets` -> `Create budget`, выбираю шаблон `Zero Spend Budget` и создаю бюджет.
+
+![image](screenshots/Screenshot_10.png)
+
+![image](screenshots/Screenshot_11.png)
+
+## Задание 3. Создание и запуск EC2 экземпляра
+
+Открываю сервис `EC2` создаю `Instance` и заполняю указанные параметры для запуска виртуальной машины:
+
+![image](screenshots/Screenshot_12.png)
+
+![image](screenshots/Screenshot_13.png)
+
+![image](screenshots/Screenshot_14.png)
+
+![image](screenshots/Screenshot_15.png)
+
+![image](screenshots/Screenshot_16.png)
+
+> Что такое User Data и какую роль выполняет данный скрипт? Для чего используется nginx?
+
+> User Data — это поле, куда передаются инструкции первичной инициализации машины. Эти данные обрабатывает сервис cloud-init при первом запуске инстанса. Так можно сразу "поднять" нужное окружение: установить пакеты, создать файлы, включить сервисы.
+
+> Nginx используется как веб-сервер, чтобы инстанс сразу после запуска отдавал страницу по HTTP. Это удобно для быстрой проверки, что машина жива, порт 80 открыт и User Data сработал.
+
+Жму `Launch Instance` и запускаю виртуальную машину
+
+![image](screenshots/Screenshot_17.png)
+
+Проверяю доступ по публичному IP:
+
+![image](screenshots/Screenshot_18.png)
+
+## Задание 4. Логирование и мониторинг
