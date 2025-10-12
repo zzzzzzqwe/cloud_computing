@@ -35,3 +35,9 @@
 ![image](screenshots/Screenshot_6.png)
 
 ![image](screenshots/Screenshot_7.png)
+
+Выхожу из root-пользователя и вхожу под новым юзером, используя данные из документа. Проверяю, что есть доступ к консоли
+
+![image](screenshots/Screenshot_8.png)
+
+![image](screenshots/Screenshot_9.png)
