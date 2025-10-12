@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>О нас</title>
+  <meta name="description" content="Разработка">
+<style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+      color: var(--text);
+      background: linear-gradient(180deg, #0b1220, #0f172a 40%);
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header,
+    footer {
+      background: #0b1020aa;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #1f2937;
+    }
+
+    header .wrap,
+    footer .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav a {
+      margin-left: 14px;
+      padding: 8px 10px;
+      border-radius: 8px;
+    }
+
+    nav a[aria-current="page"] {
+      background: #1f2937;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .section {
+      margin: 24px 0 40px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 16px 0;
+    }
+
+    p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    footer {
+      border-top: 1px solid #1f2937;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container wrap">
+      <a class="logo" href="index.html">Разработка</a>
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="about.html" aria-current="page">О нас</a>
+        <a href="contact.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>О нас</h1>
+    <p class="section">Мы делаем простые и понятные решения для малого бизнеса: сайты, внутренние инструменты.</p>
+
+    <section class="grid section">
+      <div class="card">
+        <h3>Миссия</h3>
+        <p>Помогать быстро запускать онлайн-продукты без перегруза технологиями.</p>
+      </div>
+      <div class="card">
+        <h3>Подход</h3>
+        <p>Минимум лишнего, максимум пользы: делаем только то, что нужно.</p>
+      </div>
+      <div class="card">
+        <h3>Ценности</h3>
+        <p>Простота, прозрачность, уважение к времени клиента.</p>
+      </div>
+    </section>
+
+    <section class="card section">
+      <h3>Команда</h3>
+      <p>Gachayev Dmitrii - Development</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container wrap">
+      <small class="muted">© <span id="y"></span>Разработка</small>
+      <small class="muted">Открыты к сотрудничеству</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

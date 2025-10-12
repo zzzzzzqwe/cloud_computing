@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Разработка</title>
+  <meta name="description" content="Разработка">
+ <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+      color: var(--text);
+      background: linear-gradient(180deg, #0b1220, #0f172a 40%);
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header,
+    footer {
+      background: #0b1020aa;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #1f2937;
+    }
+
+    header .wrap,
+    footer .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav a {
+      margin-left: 14px;
+      padding: 8px 10px;
+      border-radius: 8px;
+    }
+
+    nav a[aria-current="page"] {
+      background: #1f2937;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 16px 0;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 4px;
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #1f2937;
+      background: #0f172a;
+      color: var(--text);
+    }
+
+    .btn {
+      margin-top: 12px;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: #052e13;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid #1f2937;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container wrap">
+      <a class="logo" href="index.html">Разработка</a>
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="contact.html" aria-current="page">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Контакты</h1>
+    <div class="grid">
+      <section class="card">
+        <h3>Связаться с нами</h3>
+        <p class="muted">
+          Почта: <a href="mailto:info@example.com">info@example.com</a><br>
+          Телефон: <a href="tel:+37300000000">+373 000 00 000</a>
+        </p>
+        <!-- ЗАМЕНИТЕ: адрес и ссылку на карту -->
+        <p class="muted">
+          Адрес: Ул. Штефан чел Маре, 1, Кишинёв<br>
+          <a href="https://maps.google.com/?q=Chi%C8%99in%C4%83u">Открыть на карте</a>
+        </p>
+        <p class="muted">
+          <a href="#">Telegram</a> · <a href="#">Instagram</a>
+        </p>
+      </section>
+
+      <section class="card">
+        <h3>Форма обратной связи</h3>
+        <form action="#" method="post">
+          <label for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          <label for="msg">Сообщение</label>
+          <textarea id="msg" name="message" rows="5" placeholder="Коротко опишите вопрос" required></textarea>
+          <button class="btn" type="submit">Отправить</button>
+        </form>
+        <p class="muted" style="margin-top:10px;">Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container wrap">
+      <small class="muted">© <span id="y"></span>Разработка</small>
+      <small class="muted"><a href="#">Политика конфиденциальности</a></small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
