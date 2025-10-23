@@ -72,3 +72,80 @@
 
 > Чтобы подсеть знала, куда направлять сетевой трафик.
 Привязка таблицы маршрутов определяет, есть ли у подсети доступ в интернет или только внутри VPC.
+
+## Шаг 5.2. Создание приватной таблицы маршрутов
+
+По той же аналогии создаю приватную таблицу:
+
+![image](screenshots/Screenshot_10.png)
+
+![image](screenshots/Screenshot_11.png)
+
+## Шаг 6. Создание NAT Gateway
+
+> Как работает NAT Gateway?
+
+> NAT Gateway позволяет ресурсам из приватной подсети выходить в интернет,
+но не позволяет интернету подключаться к ним обратно.
+
+## Шаг 6.1. Создание Elastic IP
+
+В левой панели выбираю `Elastic IPs` - `Allocate Elastic IP address`
+
+![image](screenshots/Screenshot_12.png)
+
+## Шаг 6.2. Создание NAT Gateway
+
+Перехожу в `NAT gateways` -> `Create NAT gateway`:
+
+![image](screenshots/Screenshot_13.png)
+
+## Шаг 6.3. Изменение приватной таблицы маршрутов
+
+Перехожу в `Route Tables` -> `private-rt-k06` -> `Routes` -> `Edit routes`:
+
+![image](screenshots/Screenshot_14.png)
+
+Делаю следующее:
+
+![image](screenshots/Screenshot_15.png)
+
+## Шаг 7. Создание Security Groups
+
+Cоздаю Security group `web-sg-k06`:
+
+![image](screenshots/Screenshot_16.png)
+
+Создаю еще 2 Security group - `bastion-sg-k06`:
+
+![image](screenshots/Screenshot_17.png)
+
+и `db-sg-k06`:
+
+![image](screenshots/Screenshot_18.png)
+
+> Что такое `Bastion Host` и зачем он нужен в архитектуре с приватными подсетями?
+
+> `Bastion Host` - это защищённый шлюз для администрирования приватных серверов,
+позволяющий подключаться к ним через один контролируемый публичный сервер,
+вместо того чтобы открывать доступ в интернет напрямую.
+
+## Шаг 8. Создание EC2-инстансов
+
+Создаю три `EC2`-инстанса, которые будут выполнять следующие роли:
+
+- Веб-сервер (web-server) - в публичной подсети, доступен из Интернета по HTTP.
+- Сервер базы данных (db-server) - в приватной подсети, недоступен напрямую извне.
+- Bastion Host (bastion-host) - в публичной подсети, для безопасного доступа к приватным ресурсам.
+
+Для всех инстансов использую: 
+
+- `AMI`: Amazon Linux 2 AMI (HVM), SSD Volume Type
+- `Тип инстанса`: t3.micro
+- `Key Pair`: ключ - student-key-k06
+- `Хранилище`: по умолчанию (8 ГБ)
+- `Теги`: имя инстанса
+
+`web_server`:
+
+![image](screenshots/Screenshot_19.png)
