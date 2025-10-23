@@ -148,4 +148,4 @@ Cоздаю Security group `web-sg-k06`:
 
 `web_server`:
 
-![image](screenshots/Screenshot_19.png)
+![image](screenshots/Screenshot_20.png)
